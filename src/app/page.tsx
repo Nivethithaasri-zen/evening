@@ -1,30 +1,42 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import NotificationCustomization from '@/components/ui/notification-customization'
+import VoiceNotification from '@/components/ui/voice-notification'
+import { AnalyticsTracker } from '@/components/ui/analytics-tracker'
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        {/* Need to remove this section once application generation Begins  ----START SECTION----*/}
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by prompting{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              Alchemi will help to build your app
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Scope the features, Brainstorm the implementation plan, Generate the code and Deploy it.
-          </li>
-          <li className="tracking-[-.01em]">
-            Alchemi uses supabase as a backend. Vercel for deployment.
-          </li>
-        </ol>
-        {/* Need to remove this section once application generation Begins  ----START SECTION----*/}  
-        
-      </main>
-      
-    </div>
-  );
+    <>
+      <AnalyticsTracker />
+      <section
+        className="mb-10 flex flex-col items-center gap-8"
+        aria-labelledby="welcome-heading"
+      >
+        <h1
+          id="welcome-heading"
+          className="text-3xl sm:text-4xl font-bold text-center bg-gradient-to-r from-blue-700 via-purple-600 to-pink-500 bg-clip-text text-transparent"
+        >
+          Welcome to the MVP App!
+        </h1>
+        <p className="text-lg text-gray-700 max-w-xl text-center">
+          This platform offers a fully accessible, multilingual experience with advanced notification, analytics, and voice features.
+        </p>
+      </section>
+      <section
+        className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        aria-label="Customization & Notifications"
+      >
+        <div className="bg-white/70 rounded-xl shadow-lg p-6 flex flex-col gap-4">
+          <h2 className="font-semibold text-xl text-blue-700 mb-2">
+            Notification Preferences
+          </h2>
+          <NotificationCustomization />
+        </div>
+        <div className="bg-white/70 rounded-xl shadow-lg p-6 flex flex-col gap-4">
+          <h2 className="font-semibold text-xl text-purple-700 mb-2">
+            Voice Notification
+          </h2>
+          <VoiceNotification />
+        </div>
+      </section>
+    </>
+  )
 }
